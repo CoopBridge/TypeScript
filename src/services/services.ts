@@ -4531,6 +4531,8 @@ module ts {
                                 return NodeFlags.Export;
                             case SyntaxKind.DeclareKeyword:
                                 return NodeFlags.Ambient;
+                            case SyntaxKind.InternalKeyword:
+                                return NodeFlags.Internal;
                             default:
                                 Debug.fail();
                         }

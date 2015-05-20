@@ -106,6 +106,7 @@ module ts {
         ImportKeyword,
         InKeyword,
         InstanceOfKeyword,
+        InternalKeyword,
         NewKeyword,
         NullKeyword,
         ReturnKeyword,
@@ -316,9 +317,10 @@ module ts {
         OctalLiteral =      0x00004000,  // Octal numeric literal
         Namespace =         0x00008000,  // Namespace declaration
         ExportContext =     0x00010000,  // Export context (initialized by binding)
+        Internal =          0x00020000,  // Modifier (Don't generate entry in Declaration File)
 
-        Modifier = Export | Ambient | Public | Private | Protected | Static | Default,
-        AccessibilityModifier = Public | Private | Protected,
+        Modifier = Export | Ambient | Public | Private | Protected | Static | Default | Internal,
+        AccessibilityModifier = Public | Private | Protected | Internal,
         BlockScoped = Let | Const
     }
 

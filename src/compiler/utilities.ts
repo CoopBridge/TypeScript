@@ -373,6 +373,10 @@ module ts {
     export function isLet(node: Node): boolean {
         return !!(getCombinedNodeFlags(node) & NodeFlags.Let);
     }
+    
+    export function isInternal(node: Node): boolean {
+        return !!(getCombinedNodeFlags(node) & NodeFlags.Internal);
+    }
 
     export function isPrologueDirective(node: Node): boolean {
         return node.kind === SyntaxKind.ExpressionStatement && (<ExpressionStatement>node).expression.kind === SyntaxKind.StringLiteral;
@@ -1142,6 +1146,7 @@ module ts {
             case SyntaxKind.DeclareKeyword:
             case SyntaxKind.ConstKeyword:
             case SyntaxKind.DefaultKeyword:
+            case SyntaxKind.InternalKeyword:
                 return true;
         }
         return false;
@@ -1640,6 +1645,7 @@ module ts {
             case SyntaxKind.ExportKeyword: return NodeFlags.Export;
             case SyntaxKind.DeclareKeyword: return NodeFlags.Ambient;
             case SyntaxKind.ConstKeyword: return NodeFlags.Const;
+            case SyntaxKind.InternalKeyword: return NodeFlags.Internal;
             case SyntaxKind.DefaultKeyword: return NodeFlags.Default;
         }
         return 0;
