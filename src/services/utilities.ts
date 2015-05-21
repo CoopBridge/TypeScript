@@ -430,6 +430,7 @@ module ts {
         if (flags & NodeFlags.Public) result.push(ScriptElementKindModifier.publicMemberModifier);
         if (flags & NodeFlags.Static) result.push(ScriptElementKindModifier.staticModifier);
         if (flags & NodeFlags.Export) result.push(ScriptElementKindModifier.exportedModifier);
+        if (flags & NodeFlags.Internal) result.push(ScriptElementKindModifier.internalModifier);
         if (isInAmbientContext(node)) result.push(ScriptElementKindModifier.ambientModifier);
 
         return result.length > 0 ? result.join(',') : ScriptElementKindModifier.none;
