@@ -1505,7 +1505,7 @@ module ts {
 
         function emitNode(node: Node) {
             
-            // if(node.flags & NodeFlags.Internal) { return; }
+            if(node.flags & NodeFlags.Internal) { return; }
             
             switch (node.kind) {
                 case SyntaxKind.FunctionDeclaration:
