@@ -4640,6 +4640,7 @@ module ts {
                 case SyntaxKind.ExportKeyword:
                     // Check for export assignment or modifier on source element
                     return lookAhead(nextTokenCanFollowExportKeyword);
+                case SyntaxKind.InternalKeyword:
                 case SyntaxKind.DeclareKeyword:
                 case SyntaxKind.PublicKeyword:
                 case SyntaxKind.PrivateKeyword:

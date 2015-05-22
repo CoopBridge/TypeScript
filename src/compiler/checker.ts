@@ -12319,6 +12319,9 @@ module ts {
                         else if (flags & NodeFlags.Ambient) {
                             return grammarErrorOnNode(modifier, Diagnostics._0_modifier_must_precede_1_modifier, "export", "declare");
                         }
+                        else if (flags & NodeFlags.Internal) {
+                            return grammarErrorOnNode(modifier, Diagnostics._0_modifier_must_precede_1_modifier, "export", "internal");
+                        }
                         else if (node.parent.kind === SyntaxKind.ClassDeclaration) {
                             return grammarErrorOnNode(modifier, Diagnostics._0_modifier_cannot_appear_on_a_class_element, "export");
                         }
@@ -12343,6 +12346,16 @@ module ts {
                         }
                         flags |= NodeFlags.Ambient;
                         lastDeclare = modifier
+                        break;
+                    
+                    case SyntaxKind.InternalKeyword:
+                        if (flags & NodeFlags.Internal) {
+                            return grammarErrorOnNode(modifier, Diagnostics._0_modifier_already_seen, "internal");
+                        } 
+                        else if (node.kind === SyntaxKind.Parameter) {
+                            return grammarErrorOnNode(modifier, Diagnostics._0_modifier_cannot_appear_on_a_parameter, "export");
+                        }
+                        flags |= NodeFlags.Internal;
                         break;
                 }
             }

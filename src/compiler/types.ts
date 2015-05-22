@@ -320,7 +320,7 @@ module ts {
         Internal =          0x00020000,  // Modifier (Don't generate entry in Declaration File)
 
         Modifier = Export | Ambient | Public | Private | Protected | Static | Default | Internal,
-        AccessibilityModifier = Public | Private | Protected | Internal,
+        AccessibilityModifier = Public | Private | Protected,
         BlockScoped = Let | Const
     }
 
