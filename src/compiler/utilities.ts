@@ -373,10 +373,6 @@ module ts {
     export function isLet(node: Node): boolean {
         return !!(getCombinedNodeFlags(node) & NodeFlags.Let);
     }
-    
-    export function isInternal(node: Node): boolean {
-        return !!(getCombinedNodeFlags(node) & NodeFlags.Internal);
-    }
 
     export function isPrologueDirective(node: Node): boolean {
         return node.kind === SyntaxKind.ExpressionStatement && (<ExpressionStatement>node).expression.kind === SyntaxKind.StringLiteral;
