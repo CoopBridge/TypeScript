@@ -653,8 +653,4 @@ module ts {
             typechecker.getSymbolDisplayBuilder().buildSignatureDisplay(signature, writer, enclosingDeclaration, flags);
         });
     }
-
-    export function isJavaScript(fileName: string) {
-        return fileExtensionIs(fileName, ".js");
-    }
 }
